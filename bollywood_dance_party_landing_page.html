@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bollywood Dance Party • House of Ananda Faridabad</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Google Fonts: Rozha One & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Rozha+One&family=Bungee&display=swap" rel="stylesheet" />
+  
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pink: '#FF2E93',
+              darkPink: '#D80064',
+              gold: '#FFD700',
+              marigold: '#FFA500',
+              darkViolet: '#13041A',
+              cardBg: '#230830',
+              accentPurple: '#7928CA'
+            }
+          },
+          fontFamily: {
+            rozha: ['"Rozha One"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            bungee: ['"Bungee"', 'cursive']
+          },
+          animation: {
+            'spin-slow': 'spin 12s linear infinite',
+            'bounce-slow': 'bounce 3s infinite',
+            'pulse-glow': 'pulseGlow 2.5s infinite'
+          },
+          keyframes: {
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.9', transform: 'scale(1)' },
+              '50%': { opacity: '1', transform: 'scale(1.02)', filter: 'drop-shadow(0 0 15px rgba(255, 46, 147, 0.7))' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .bg-mesh {
+      background-color: #13041A;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(216, 0, 100, 0.35) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(121, 40, 202, 0.45) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(255, 46, 147, 0.2) 0px, transparent 60%),
+        radial-gradient(at 100% 100%, rgba(255, 215, 0, 0.15) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(19, 4, 26, 0.9) 0px, transparent 60%);
+      background-attachment: fixed;
+    }
+    .neon-border {
+      box-shadow: 0 0 15px rgba(255, 46, 147, 0.3), inset 0 0 10px rgba(255, 46, 147, 0.2);
+    }
+    .text-glow {
+      text-shadow: 0 0 12px rgba(255, 46, 147, 0.7);
+    }
+  </style>
+</head>
+
+<body class="bg-mesh text-white font-sans antialiased overflow-x-hidden min-h-screen selection:bg-brand-pink selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-brand-pink via-purple-600 to-brand-marigold text-white text-xs md:text-sm font-semibold py-2.5 px-4 text-center sticky top-0 z-50 shadow-lg flex items-center justify-center gap-2">
+    <span class="inline-block animate-ping w-2 h-2 rounded-full bg-yellow-300"></span>
+    <span><i class="fa-solid fa-fire text-amber-300 mr-1"></i> <strong>LIMITED SEATS AVAILABLE!</strong> 19TH SEPTEMBER • WOMEN-ONLY DANCE SPREE</span>
+    <a href="#tickets" class="underline underline-offset-4 hover:text-yellow-200 transition font-bold ml-2">Claim Your Pass &rarr;</a>
+  </div>
+
+  <!-- Header Navigation -->
+  <nav class="border-b border-pink-900/40 bg-brand-darkViolet/85 backdrop-blur-md sticky top-9 z-40 px-4 lg:px-12 py-3 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-pink to-brand-gold flex items-center justify-center text-lg shadow-lg group-hover:scale-110 transition">
+          <i class="fa-solid fa-compact-disc text-white text-base animate-spin-slow"></i>
+        </div>
+        <div>
+          <span class="font-rozha text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-300 to-yellow-300 tracking-wide block leading-none">House of Ananda</span>
+          <span class="text-[10px] tracking-widest text-pink-300 uppercase font-bold">Faridabad • Girls Night Out</span>
+        </div>
+      </a>
+
+      <!-- Clean Navigation Links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-pink-100/90">
+        <a href="#vibe" class="hover:text-brand-pink transition">The Vibe</a>
+        <a href="#venue" class="hover:text-brand-pink transition">Venue</a>
+        <a href="#tickets" class="hover:text-brand-pink transition">Passes</a>
+        <a href="#faq" class="hover:text-brand-pink transition">FAQ</a>
+      </div>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-3">
+        <button onclick="openBookingModal('solo')" class="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-brand-pink to-purple-600 text-white font-bold text-xs shadow-md shadow-pink-600/30 hover:scale-105 active:scale-95 transition-all">
+          <i class="fa-solid fa-ticket"></i>
+          <span>Book Pass</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative pt-10 pb-16 px-4 md:px-8 max-w-6xl mx-auto text-center">
+    <!-- Tribe Banner Tag -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/20 border border-pink-400/40 text-pink-300 text-xs md:text-sm font-bold uppercase tracking-widest mb-6 animate-pulse">
+      <i class="fa-solid fa-heart text-brand-pink"></i>
+      <span>Calling All Her Tribe! It's Time To Dance</span>
+    </div>
+
+    <h1 class="font-rozha text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white mb-4 leading-none">
+      BOLLYWOOD <br class="sm:hidden" />
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-pink via-rose-300 to-brand-gold text-glow">DANCE PARTY</span>
+    </h1>
+
+    <div class="inline-block bg-gradient-to-r from-brand-pink via-purple-700 to-brand-pink text-white font-black text-xs sm:text-sm uppercase tracking-widest px-6 py-2 rounded-full shadow-lg shadow-pink-600/40 mb-6">
+      <i class="fa-solid fa-heart text-white mr-1.5"></i> ONLY FOR FEMALES <i class="fa-solid fa-heart text-white ml-1.5"></i>
+    </div>
+
+    <p class="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-pink-100/90 font-medium mb-8 leading-relaxed">
+      Ditch the routine, grab your bestie (or come solo!) and dance like nobody’s watching. Think chatpate Bollywood songs, full-on baddie energy, crazy moves, and zero choreography pressure!
+    </p>
+
+    <!-- Key Details Pill Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto mb-10 text-left">
+      <div class="bg-brand-cardBg/80 border border-pink-500/30 backdrop-blur-md rounded-2xl p-4 flex items-center gap-3.5 shadow-lg">
+        <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-brand-pink flex items-center justify-center text-lg shrink-0">
+          <i class="fa-regular fa-calendar-days"></i>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase font-bold text-pink-300/70 tracking-wider">Date</span>
+          <p class="font-bold text-sm text-white">19th September</p>
+        </div>
+      </div>
+
+      <div class="bg-brand-cardBg/80 border border-pink-500/30 backdrop-blur-md rounded-2xl p-4 flex items-center gap-3.5 shadow-lg">
+        <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-brand-pink flex items-center justify-center text-lg shrink-0">
+          <i class="fa-regular fa-clock"></i>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase font-bold text-pink-300/70 tracking-wider">Time</span>
+          <p class="font-bold text-sm text-white">4:00 PM – 6:00 PM</p>
+        </div>
+      </div>
+
+      <div class="bg-brand-cardBg/80 border border-pink-500/30 backdrop-blur-md rounded-2xl p-4 flex items-center gap-3.5 shadow-lg">
+        <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-brand-pink flex items-center justify-center text-lg shrink-0">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase font-bold text-pink-300/70 tracking-wider">Venue</span>
+          <p class="font-bold text-sm text-white">House of Ananda, FBD</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Action Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      <a href="#tickets" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-brand-pink via-pink-600 to-brand-gold text-white font-extrabold text-sm shadow-xl shadow-pink-600/40 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+        <span>Book Your Spot Now</span>
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </a>
+      <a href="#venue" class="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-pink-300/30 text-pink-200 font-semibold text-xs transition flex items-center gap-2">
+        <i class="fa-solid fa-map-pin text-brand-pink text-xs"></i>
+        <span>View Venue & Map</span>
+      </a>
+    </div>
+
+    <!-- Live Status Notice -->
+    <div class="mt-4 flex items-center justify-center gap-2 text-xs text-pink-300/80 font-medium">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span>Limited Seats Available! • Come solo or bring your bestie!</span>
+    </div>
+  </section>
+
+  <!-- The Vibe Section -->
+  <section id="vibe" class="py-12 px-4 max-w-6xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="font-rozha text-3xl sm:text-4xl text-white mb-2">Good Music. High Energy. Great Vibes.</h2>
+      <p class="text-pink-200/80 text-sm max-w-xl mx-auto">Here is why you cannot afford to miss this Saturday evening spree!</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-brand-cardBg/60 border border-pink-500/20 rounded-3xl p-6 backdrop-blur-sm hover:border-brand-pink/50 transition group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-pink-500 to-purple-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+          <i class="fa-solid fa-music text-white"></i>
+        </div>
+        <h3 class="font-bold text-lg text-white mb-2">Pure Chatpate Anthems</h3>
+        <p class="text-xs sm:text-sm text-pink-200/70 leading-relaxed">
+          From 90s nostalgia to 2000s classics and current chartbusters. No stiff beats — only tracks that force your feet to dance.
+        </p>
+      </div>
+
+      <div class="bg-brand-cardBg/60 border border-pink-500/20 rounded-3xl p-6 backdrop-blur-sm hover:border-brand-pink/50 transition group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 to-brand-gold flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+          <i class="fa-solid fa-shield-heart text-white"></i>
+        </div>
+        <h3 class="font-bold text-lg text-white mb-2">Strictly All-Female Space</h3>
+        <p class="text-xs sm:text-sm text-pink-200/70 leading-relaxed">
+          An intimate, safe sanctuary reserved only for women. Dance freely without feeling judged or watched.
+        </p>
+      </div>
+
+      <div class="bg-brand-cardBg/60 border border-pink-500/20 rounded-3xl p-6 backdrop-blur-sm hover:border-brand-pink/50 transition group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-pink-500 to-brand-marigold flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+          <i class="fa-solid fa-shoe-prints text-white"></i>
+        </div>
+        <h3 class="font-bold text-lg text-white mb-2">Zero Choreography Stress</h3>
+        <p class="text-xs sm:text-sm text-pink-200/70 leading-relaxed">
+          No dance experience needed. No steps to remember. Just come as you are, turn the music up, and let loose!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing & Passes Section -->
+  <section id="tickets" class="py-14 px-4 max-w-5xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow-400/20 border border-yellow-400/40 text-yellow-300 text-xs font-bold uppercase tracking-wider mb-3">
+        <i class="fa-solid fa-sparkles"></i> Limited Passes Available
+      </div>
+      <h2 class="font-rozha text-3xl sm:text-5xl text-white mb-3">Choose Your Pass</h2>
+      <p class="text-pink-200/80 text-sm max-w-md mx-auto">Come solo or bring your bestie. Either way, you are leaving with sore feet and a happy heart!</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <!-- Solo Queen Pass -->
+      <div class="bg-brand-cardBg/90 border border-pink-500/30 hover:border-brand-pink rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative transition-all duration-300 hover:-translate-y-1">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-pink-300">Individual Entry</span>
+              <h3 class="font-bold text-2xl text-white mt-0.5">Solo Queen Pass</h3>
+            </div>
+            <span class="w-10 h-10 rounded-2xl bg-pink-500/20 text-brand-pink flex items-center justify-center text-lg">
+              <i class="fa-solid fa-user"></i>
+            </span>
+          </div>
+
+          <div class="flex items-baseline gap-1 my-5">
+            <span class="text-4xl sm:text-5xl font-extrabold text-white">₹299</span>
+            <span class="text-xs text-pink-300 font-medium">/ 1 Person</span>
+          </div>
+
+          <ul class="space-y-3 text-xs sm:text-sm text-pink-100/80 mb-8">
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-circle-check text-emerald-400"></i>
+              <span>Access to 2 hours of non-stop dance party</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-circle-check text-emerald-400"></i>
+              <span>Instant E-Pass generated directly to phone</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-circle-check text-emerald-400"></i>
+              <span>Request 1 favorite Bollywood track</span>
+            </li>
+          </ul>
+        </div>
+
+        <button onclick="openBookingModal('solo')" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-extrabold text-sm shadow-lg shadow-pink-600/30 transition hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+          <span>Book Solo Pass (₹299)</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+
+      <!-- 2 Besties Pass -->
+      <div class="bg-brand-cardBg/90 border-2 border-brand-pink rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative transition-all duration-300 hover:-translate-y-1">
+        <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-brand-pink to-brand-gold text-white text-[11px] font-extrabold uppercase tracking-wider py-1 px-3.5 rounded-full shadow-md">
+          Save ₹98 Together
+        </div>
+
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Bestie Duo Special</span>
+              <h3 class="font-bold text-2xl text-white mt-0.5">2 Besties Pass</h3>
+            </div>
+            <span class="w-10 h-10 rounded-2xl bg-amber-400/20 text-brand-gold flex items-center justify-center text-lg">
+              <i class="fa-solid fa-user-group"></i>
+            </span>
+          </div>
+
+          <div class="flex items-baseline gap-1 my-5">
+            <span class="text-4xl sm:text-5xl font-extrabold text-brand-gold">₹500</span>
+            <span class="text-xs text-pink-300 font-medium">/ For 2 Girls</span>
+          </div>
+
+          <ul class="space-y-3 text-xs sm:text-sm text-pink-100/80 mb-8">
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-circle-check text-emerald-400"></i>
+              <span>Full admission for both you & your bestie</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-circle-check text-emerald-400"></i>
+              <span>Save ₹98 compared to separate passes</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-circle-check text-emerald-400"></i>
+              <span>Double song request priority</span>
+            </li>
+          </ul>
+        </div>
+
+        <button onclick="openBookingModal('duo')" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-brand-pink via-purple-600 to-brand-gold text-white font-extrabold text-sm shadow-lg shadow-pink-600/40 transition hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+          <span>Book 2 Besties Pass (₹500)</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue & Studio Location Section -->
+  <section id="venue" class="py-12 px-4 max-w-5xl mx-auto">
+    <div class="bg-brand-cardBg/80 border border-pink-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-md">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-pink-300">Venue Spotlight</span>
+          <h2 class="font-rozha text-3xl sm:text-4xl text-white mt-1 mb-4">House of Ananda</h2>
+          
+          <div class="space-y-3 text-xs sm:text-sm text-pink-200/90 mb-6">
+            <p class="flex items-start gap-3">
+              <i class="fa-solid fa-location-dot text-brand-pink text-base mt-0.5"></i>
+              <span><strong>2855 Basement, Sainik Colony</strong>, Sector 49, Faridabad, Haryana</span>
+            </p>
+            <p class="flex items-center gap-3">
+              <i class="fa-regular fa-clock text-brand-pink text-base"></i>
+              <span>Saturday, 19th September • 4:00 PM to 6:00 PM</span>
+            </p>
+            <p class="flex items-center gap-3">
+              <i class="fa-solid fa-snowflake text-brand-pink text-base"></i>
+              <span>Fully Air-Conditioned Studio & Cushioned Wooden Flooring</span>
+            </p>
+          </div>
+
+          <a href="https://maps.google.com/?q=2855+Basement+Sainik+Colony+Sector+49+Faridabad" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-pink-400/40 text-white font-bold text-xs transition">
+            <i class="fa-solid fa-location-arrow text-brand-pink"></i>
+            <span>Open in Google Maps</span>
+          </a>
+        </div>
+
+        <div class="bg-pink-950/40 border border-pink-500/20 rounded-2xl p-6 text-center">
+          <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-brand-pink to-brand-gold flex items-center justify-center mx-auto mb-3 text-2xl text-white shadow-lg">
+            <i class="fa-solid fa-champagne-glasses"></i>
+          </div>
+          <h4 class="font-bold text-white text-base mb-1">Girls Night Out Atmosphere</h4>
+          <p class="text-xs text-pink-200/70 max-w-xs mx-auto">
+            Soft mood lighting, thumping sound setup, and safe drinking water provided. Just bring your best energy and comfortable kicks!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compact FAQ Section -->
+  <section id="faq" class="py-12 px-4 max-w-3xl mx-auto">
+    <div class="text-center mb-8">
+      <h2 class="font-rozha text-3xl text-white mb-2">Got Questions?</h2>
+      <p class="text-pink-200/70 text-xs">Everything you need to know before stepping onto the dance floor.</p>
+    </div>
+
+    <div class="space-y-3">
+      <div class="bg-brand-cardBg/70 border border-pink-500/20 rounded-2xl p-4">
+        <button onclick="toggleFaq('faq1')" class="w-full flex justify-between items-center text-left font-bold text-sm text-white">
+          <span>Can I come solo? Will it be awkward?</span>
+          <i id="faq1-icon" class="fa-solid fa-chevron-down text-xs text-pink-400 transition-transform"></i>
+        </button>
+        <p id="faq1" class="hidden text-xs text-pink-200/80 mt-2.5 leading-relaxed">
+          Absolutely! Nearly half of our attendees come solo. It takes about 2 minutes to make friends once the music starts dropping.
+        </p>
+      </div>
+
+      <div class="bg-brand-cardBg/70 border border-pink-500/20 rounded-2xl p-4">
+        <button onclick="toggleFaq('faq2')" class="w-full flex justify-between items-center text-left font-bold text-sm text-white">
+          <span>What should I wear?</span>
+          <i id="faq2-icon" class="fa-solid fa-chevron-down text-xs text-pink-400 transition-transform"></i>
+        </button>
+        <p id="faq2" class="hidden text-xs text-pink-200/80 mt-2.5 leading-relaxed">
+          Anything you can jump and groove in! Gym wear, oversized tees, joggers, or casual festive wear paired with comfortable sneakers.
+        </p>
+      </div>
+
+      <div class="bg-brand-cardBg/70 border border-pink-500/20 rounded-2xl p-4">
+        <button onclick="toggleFaq('faq3')" class="w-full flex justify-between items-center text-left font-bold text-sm text-white">
+          <span>How does the UPI payment & entry pass work?</span>
+          <i id="faq3-icon" class="fa-solid fa-chevron-down text-xs text-pink-400 transition-transform"></i>
+        </button>
+        <p id="faq3" class="hidden text-xs text-pink-200/80 mt-2.5 leading-relaxed">
+          Scan the verified Paytm UPI QR code, complete payment via your UPI app, and paste your bank's 12-digit UTR/Reference ID from the receipt. Your official Entry Pass with a unique Pass ID will generate immediately on screen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-pink-900/40 bg-brand-darkViolet/90 py-10 px-4 text-center text-xs text-pink-300/80">
+    <div class="max-w-4xl mx-auto space-y-4">
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="https://instagram.com/house.of.ananda" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-pink-500/30 text-white font-semibold transition flex items-center gap-2">
+          <i class="fa-brands fa-instagram text-brand-pink"></i>
+          <span>@house.of.ananda</span>
+        </a>
+        <a href="https://wa.me/919958276898" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-pink-500/30 text-white font-semibold transition flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+          <span>+91-99582 76898</span>
+        </a>
+      </div>
+
+      <p>House of Ananda • 2855 Basement, Sainik Colony, Faridabad</p>
+      
+      <!-- Clickable copyright notice triggers the Organizer PIN login -->
+      <p onclick="promptHostLogin()" class="cursor-pointer text-[11px] text-pink-400/60 hover:text-pink-300 transition select-none">
+        © 2026 House of Ananda Faridabad. Bollywood Dance Party Series. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- DEDICATED PARTY MUSIC PLAYER (LOCAL MP3) -->
+  <div class="fixed bottom-5 left-5 z-40">
+    <audio id="localPartyAudio" src="mashup-of-the-year.mp3" preload="auto" loop></audio>
+
+    <button id="musicToggleBtn" onclick="toggleMusicPlayback()" class="px-4 py-2.5 rounded-full bg-brand-cardBg/95 hover:bg-brand-cardBg border border-pink-500/60 hover:border-brand-pink text-white shadow-xl shadow-pink-950/80 backdrop-blur-md transition-all flex items-center gap-2.5 text-xs font-bold group active:scale-95 cursor-pointer">
+      <span class="w-7 h-7 rounded-full bg-gradient-to-tr from-brand-pink to-brand-gold flex items-center justify-center text-white text-xs shadow-sm group-hover:scale-105 transition-transform">
+        <i id="musicPlayIcon" class="fa-solid fa-play"></i>
+      </span>
+      <div class="text-left leading-tight">
+        <span class="block text-white font-extrabold text-[12px]">Mashup of the Year</span>
+        <span class="text-[10px] text-pink-300 font-medium block">Tap to Play / Pause</span>
+      </div>
+      <span id="musicPlayingBars" class="flex items-end gap-0.5 h-3.5 ml-1.5 opacity-40 transition-opacity">
+        <span class="w-1 bg-brand-gold h-full rounded-full animate-pulse"></span>
+        <span class="w-1 bg-brand-pink h-2/3 rounded-full animate-pulse" style="animation-delay: 0.2s"></span>
+        <span class="w-1 bg-purple-400 h-4/5 rounded-full animate-pulse" style="animation-delay: 0.4s"></span>
+      </span>
+    </button>
+  </div>
+
+  <!-- BOOKING & CHECKOUT MODAL -->
+  <div id="bookingModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-brand-darkViolet border border-pink-500/50 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl relative">
+      <!-- Modal Header -->
+      <div class="p-5 border-b border-pink-800/40 flex items-center justify-between bg-pink-950/30">
+        <div>
+          <h3 class="font-bold text-white text-base" id="bookingModalTitle">Book Your Dance Pass</h3>
+          <p class="text-[11px] text-pink-300/80">House of Ananda • 19th Sept</p>
+        </div>
+        <button onclick="closeBookingModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-pink-200 flex items-center justify-center text-xs transition">✕</button>
+      </div>
+
+      <!-- Step 1: Attendee Details Form -->
+      <div id="stepForm" class="p-5 sm:p-6 space-y-4 text-xs">
+        <!-- Pass Category Selector -->
+        <div class="grid grid-cols-2 gap-2">
+          <button type="button" id="btnSelectSolo" onclick="selectPassType('solo')" class="p-3 rounded-2xl border-2 border-brand-pink bg-pink-900/40 text-center transition">
+            <span class="block font-bold text-white text-sm">Solo Queen</span>
+            <span class="text-[11px] text-pink-300 font-semibold">₹299</span>
+          </button>
+          <button type="button" id="btnSelectDuo" onclick="selectPassType('duo')" class="p-3 rounded-2xl border-2 border-pink-800/40 bg-brand-cardBg/60 text-center transition">
+            <span class="block font-bold text-white text-sm">2 Besties</span>
+            <span class="text-[11px] text-amber-300 font-semibold">₹500 (Duo)</span>
+          </button>
+        </div>
+
+        <div>
+          <label class="block text-pink-300 font-bold mb-1">Your Full Name *</label>
+          <input type="text" id="guestName" placeholder="e.g. Ananya Sharma" class="w-full px-3.5 py-2.5 rounded-xl bg-pink-950/40 border border-pink-500/30 text-white placeholder-pink-300/40 focus:outline-none focus:border-brand-pink" />
+        </div>
+
+        <div id="bestieNameWrapper" class="hidden">
+          <label class="block text-pink-300 font-bold mb-1">Bestie's Full Name *</label>
+          <input type="text" id="bestieName" placeholder="e.g. Riya Verma" class="w-full px-3.5 py-2.5 rounded-xl bg-pink-950/40 border border-pink-500/30 text-white placeholder-pink-300/40 focus:outline-none focus:border-brand-pink" />
+        </div>
+
+        <div>
+          <label class="block text-pink-300 font-bold mb-1">WhatsApp Phone Number *</label>
+          <input type="tel" id="guestPhone" placeholder="10-digit mobile number" class="w-full px-3.5 py-2.5 rounded-xl bg-pink-950/40 border border-pink-500/30 text-white placeholder-pink-300/40 focus:outline-none focus:border-brand-pink" />
+        </div>
+
+        <div>
+          <label class="block text-pink-300 font-bold mb-1">Favorite Bollywood Dance Track (Optional)</label>
+          <input type="text" id="requestedSong" placeholder="e.g. London Thumakda, Kala Chashma" class="w-full px-3.5 py-2.5 rounded-xl bg-pink-950/40 border border-pink-500/30 text-white placeholder-pink-300/40 focus:outline-none focus:border-brand-pink" />
+        </div>
+
+        <button onclick="proceedToPayment()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-brand-pink to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-extrabold text-sm shadow-lg shadow-pink-600/40 transition flex items-center justify-center gap-2 mt-2">
+          <span>Proceed to UPI Payment</span>
+          <span id="bookingModalAmount" class="text-brand-gold ml-1">₹299</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+
+      <!-- Step 2: Direct UPI QR Code & Mandatory UTR Verification (Screenshot Option Completely Removed) -->
+      <div id="stepPayment" class="p-5 sm:p-6 space-y-4 text-xs hidden text-center">
+        <div class="flex items-center justify-between pb-2 border-b border-pink-900/40">
+          <button onclick="backToForm()" class="text-pink-300 hover:text-white flex items-center gap-1 font-semibold">
+            <i class="fa-solid fa-arrow-left"></i> Edit Details
+          </button>
+          <span class="font-bold text-sm text-white" id="upiPayAmount">₹299</span>
+        </div>
+
+        <!-- Dynamic QR Container -->
+        <div class="bg-white p-4 rounded-2xl max-w-[210px] mx-auto shadow-xl">
+          <div id="qrCodeContainer" class="w-44 h-44 mx-auto flex items-center justify-center">
+            <!-- Dynamic QR inserted via JS -->
+          </div>
+          <div class="text-[10px] text-gray-700 font-bold mt-2">
+            Payee: <span class="text-brand-darkPink font-extrabold">ANANDITA KAUL</span>
+          </div>
+        </div>
+
+        <!-- UPI ID copy widget -->
+        <div class="bg-pink-950/50 border border-pink-500/30 rounded-2xl p-3 flex items-center justify-between text-left">
+          <div>
+            <span class="text-[10px] text-pink-300 uppercase block font-semibold">Verified UPI VPA</span>
+            <span class="font-mono text-xs font-bold text-white" id="upiIdDisplay">9958276898@ptsbi</span>
+          </div>
+          <button onclick="copyUpiId()" class="px-3 py-1.5 rounded-xl bg-pink-500/30 hover:bg-pink-500/50 border border-pink-400/40 text-pink-200 text-xs font-bold transition flex items-center gap-1">
+            <i class="fa-regular fa-copy"></i>
+            <span>Copy</span>
+          </button>
+        </div>
+
+        <!-- Mandatory 12-Digit UTR Input Block -->
+        <div class="text-left bg-pink-950/30 p-3.5 rounded-2xl border border-pink-500/30 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <label class="block text-pink-300 font-bold">12-Digit UPI Reference ID / UTR *</label>
+            <span class="text-[10px] uppercase font-bold text-amber-300 tracking-wider bg-amber-400/10 px-2 py-0.5 rounded-full border border-amber-400/30">Mandatory</span>
+          </div>
+          <input 
+            type="text" 
+            id="upiUtrRef" 
+            maxlength="22"
+            placeholder="e.g. 425819034812" 
+            class="w-full px-3.5 py-2.5 rounded-xl bg-pink-950/70 border border-pink-500/40 text-white placeholder-pink-300/40 font-mono tracking-wider focus:outline-none focus:border-brand-pink transition" 
+          />
+          <p class="text-[11px] text-pink-300/80 leading-snug flex items-start gap-1.5">
+            <i class="fa-solid fa-circle-info text-amber-300 mt-0.5 shrink-0"></i>
+            <span>Copy the 12-digit UPI Ref / UTR number from your payment receipt (Paytm, GPay, PhonePe) and paste here to unlock your entry pass.</span>
+          </p>
+          <button onclick="confirmWithUtr()" class="w-full mt-2 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-xs shadow-lg shadow-emerald-900/50 transition flex items-center justify-center gap-2 cursor-pointer active:scale-95">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Verify UTR & Unlock Entry Pass</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Verified Digital Entry Pass (Only issued with valid UTR) -->
+      <div id="stepTicket" class="p-5 sm:p-6 space-y-4 text-xs hidden text-center">
+        <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl mx-auto">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h4 class="font-bold text-white text-lg">Entry Pass Confirmed!</h4>
+        <p class="text-pink-300/80 text-xs">Logged automatically to the House of Ananda guest list.</p>
+
+        <!-- Digital Pass Card -->
+        <div class="bg-gradient-to-br from-pink-950/80 via-brand-darkViolet to-purple-950/90 border border-brand-pink/60 rounded-3xl p-5 text-left space-y-3 shadow-2xl relative overflow-hidden">
+          <div class="flex justify-between items-start border-b border-pink-800/40 pb-3">
+            <div>
+              <span class="text-[10px] text-amber-300 font-extrabold tracking-widest uppercase">Official Entry Pass</span>
+              <h5 class="text-base font-bold text-white" id="ticketPassId">ANANDA-7482</h5>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-500/40">Verified</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 text-pink-200 text-xs">
+            <div>
+              <span class="text-[10px] text-pink-400 block font-semibold">Attendee</span>
+              <strong class="text-white text-xs block truncate" id="ticketName">--</strong>
+            </div>
+            <div>
+              <span class="text-[10px] text-pink-400 block font-semibold">Category</span>
+              <strong class="text-white text-xs block" id="ticketType">Solo Queen</strong>
+            </div>
+            <div>
+              <span class="text-[10px] text-pink-400 block font-semibold">Date & Time</span>
+              <span class="text-white text-xs block">19 Sept • 4-6 PM</span>
+            </div>
+            <div>
+              <span class="text-[10px] text-pink-400 block font-semibold">Amount Paid</span>
+              <strong class="text-brand-gold text-xs block" id="ticketAmount">₹299</strong>
+            </div>
+          </div>
+
+          <div class="border-t border-pink-800/30 pt-2 text-[11px] text-pink-300">
+            <span class="font-bold text-white">Requested Song:</span>
+            <span id="ticketSong" class="italic ml-1">London Thumakda</span>
+          </div>
+          <div class="text-[10px] text-pink-400/80">
+            <span class="font-semibold">Txn Ref / UTR:</span>
+            <span id="ticketTxn" class="font-mono text-emerald-300 font-bold">--</span>
+          </div>
+        </div>
+
+        <button onclick="sendPassToWhatsApp()" class="w-full py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-lg shadow-emerald-900/40 transition flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Send Pass to Studio WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUDIO ORGANIZER DASHBOARD (PIN: 2855) -->
+  <div id="hostPortalModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-brand-darkViolet border border-pink-500/50 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl relative">
+      <div class="p-5 border-b border-pink-800/40 flex items-center justify-between bg-pink-950/30">
+        <div class="flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-full bg-brand-pink/30 flex items-center justify-center text-brand-pink"><i class="fa-solid fa-lock text-sm"></i></span>
+          <div>
+            <h3 class="font-bold text-white text-base">Studio Organizer Dashboard</h3>
+            <p class="text-[11px] text-pink-300/80">House of Ananda • Live Google Sheets Portal</p>
+          </div>
+        </div>
+        <button onclick="closeHostPortal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-pink-200 flex items-center justify-center text-xs transition">✕</button>
+      </div>
+
+      <div class="p-5 sm:p-6 overflow-y-auto space-y-5 text-xs text-pink-200">
+        <div class="grid grid-cols-3 gap-3 text-center">
+          <div class="bg-pink-950/40 p-3 rounded-2xl border border-pink-500/20">
+            <span class="text-[10px] text-pink-300 uppercase font-semibold">Total Booked</span>
+            <div class="text-xl font-bold text-white" id="statTotalAttendees">0</div>
+          </div>
+          <div class="bg-pink-950/40 p-3 rounded-2xl border border-pink-500/20">
+            <span class="text-[10px] text-pink-300 uppercase font-semibold">Total Revenue</span>
+            <div class="text-xl font-bold text-brand-gold" id="statTotalRevenue">₹0</div>
+          </div>
+          <div class="bg-pink-950/40 p-3 rounded-2xl border border-pink-500/20">
+            <span class="text-[10px] text-pink-300 uppercase font-semibold">Event Status</span>
+            <div class="text-xs sm:text-sm font-bold text-emerald-400 mt-1">Registrations Open</div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-emerald-950/60 to-teal-950/60 border border-emerald-500/40 rounded-2xl p-4 text-center">
+          <div class="flex items-center justify-center gap-2 text-emerald-300 font-bold text-sm mb-1.5">
+            <i class="fa-solid fa-table text-emerald-400"></i>
+            <span>Google Spreadsheet Connected</span>
+          </div>
+          <p class="text-[11px] text-emerald-200/80 mb-3.5">All booking details and verified UTR numbers are automatically recorded in your shared Google Sheet.</p>
+          <a id="clientSheetDirectLink" href="https://docs.google.com/spreadsheets/d/1zi1-X_MgyrURDzme7YjnUeHGuZz60NiWPQsOhIbOnRs/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-sm shadow-lg shadow-emerald-900/50 flex items-center justify-center gap-2 transition hover:scale-[1.02] active:scale-95">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span>Open Live Google Sheet ↗</span>
+          </a>
+        </div>
+
+        <div class="pt-2 border-t border-pink-900/30 flex justify-end">
+          <button onclick="exportBookingsCsv()" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-pink-200 font-medium transition flex items-center gap-2 text-xs">
+            <i class="fa-solid fa-file-csv"></i>
+            <span>Download CSV Backup</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification element -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 bg-brand-cardBg border border-brand-pink text-white px-5 py-3 rounded-2xl shadow-2xl transform translate-y-24 opacity-0 transition-all duration-300 flex items-center gap-3 text-xs sm:text-sm">
+    <span id="toastIcon" class="text-lg"><i class="fa-solid fa-bell text-brand-gold"></i></span>
+    <span id="toastMsg">Notification message</span>
+  </div>
+
+  <script>
+    // ---------------------------------------------------------------------------------
+    // STATE & CONFIGURATION
+    // ---------------------------------------------------------------------------------
+    let selectedPassType = 'solo';
+    let currentBookingData = null;
+    let memoryBookings = [];
+
+    const STUDIO_UPI_CONFIG = {
+      vpa: "9958276898@ptsbi",
+      name: "ANANDITA KAUL",
+      studioPhone: "919958276898",
+      passPrices: { solo: 299, duo: 500 },
+      googleSheetUrl: "https://docs.google.com/spreadsheets/d/1zi1-X_MgyrURDzme7YjnUeHGuZz60NiWPQsOhIbOnRs/edit?usp=sharing",
+      appsScriptWebhookUrl: "https://script.google.com/macros/s/AKfycbygk_87BL8vIBd8CShQSi4vF-7OLp27gPkLz8mCZdUC73uBsJqIOqs0T7-b24fb_GYr/exec" // Insert deployed Apps Script Web App URL here
+    };
+
+    // ---------------------------------------------------------------------------------
+    // TOAST NOTIFICATIONS
+    // ---------------------------------------------------------------------------------
+    function showToast(msg, icon = "fa-solid fa-bell") {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMsg');
+      const toastIcon = document.getElementById('toastIcon');
+      if (!toast || !toastMsg) return;
+
+      toastMsg.innerText = msg;
+      if (toastIcon) {
+        if (icon.startsWith('fa-')) {
+          toastIcon.innerHTML = `<i class="${icon} text-brand-gold"></i>`;
+        } else {
+          toastIcon.innerText = icon;
+        }
+      }
+
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+
+    // ---------------------------------------------------------------------------------
+    // BOOKING MODAL & PASS SELECTION
+    // ---------------------------------------------------------------------------------
+    function openBookingModal(type = 'solo') {
+      selectedPassType = type;
+      const modal = document.getElementById('bookingModal');
+      const stepForm = document.getElementById('stepForm');
+      const stepPayment = document.getElementById('stepPayment');
+      const stepTicket = document.getElementById('stepTicket');
+
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      if (stepForm) stepForm.classList.remove('hidden');
+      if (stepPayment) stepPayment.classList.add('hidden');
+      if (stepTicket) stepTicket.classList.add('hidden');
+
+      selectPassType(type);
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('bookingModal');
+      if (modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
+    }
+
+    function selectPassType(type) {
+      selectedPassType = type;
+      const btnSolo = document.getElementById('btnSelectSolo');
+      const btnDuo = document.getElementById('btnSelectDuo');
+      const bestieWrap = document.getElementById('bestieNameWrapper');
+      const amountTag = document.getElementById('bookingModalAmount');
+
+      if (type === 'solo') {
+        if (btnSolo) {
+          btnSolo.classList.remove('border-pink-800/40', 'bg-brand-cardBg/60');
+          btnSolo.classList.add('border-brand-pink', 'bg-pink-900/40');
+        }
+        if (btnDuo) {
+          btnDuo.classList.remove('border-brand-pink', 'bg-pink-900/40');
+          btnDuo.classList.add('border-pink-800/40', 'bg-brand-cardBg/60');
+        }
+        if (bestieWrap) bestieWrap.classList.add('hidden');
+        if (amountTag) amountTag.innerText = '₹299';
+      } else {
+        if (btnDuo) {
+          btnDuo.classList.remove('border-pink-800/40', 'bg-brand-cardBg/60');
+          btnDuo.classList.add('border-brand-pink', 'bg-pink-900/40');
+        }
+        if (btnSolo) {
+          btnSolo.classList.remove('border-brand-pink', 'bg-pink-900/40');
+          btnSolo.classList.add('border-pink-800/40', 'bg-brand-cardBg/60');
+        }
+        if (bestieWrap) bestieWrap.classList.remove('hidden');
+        if (amountTag) amountTag.innerText = '₹500';
+      }
+    }
+
+    // ---------------------------------------------------------------------------------
+    // UPI CHECKOUT FLOW
+    // ---------------------------------------------------------------------------------
+    function proceedToPayment() {
+      const nameInput = document.getElementById('guestName');
+      const phoneInput = document.getElementById('guestPhone');
+      const bestieInput = document.getElementById('bestieName');
+      const songInput = document.getElementById('requestedSong');
+
+      const name = nameInput ? nameInput.value.trim() : '';
+      const phone = phoneInput ? phoneInput.value.trim() : '';
+      const bestieName = bestieInput ? bestieInput.value.trim() : '';
+      const song = songInput ? songInput.value.trim() : '';
+
+      if (!name) {
+        showToast("Please enter your name!", "⚠️");
+        return;
+      }
+      if (!phone || phone.replace(/\D/g, '').length < 10) {
+        showToast("Please enter a valid 10-digit WhatsApp phone number!", "⚠️");
+        return;
+      }
+      if (selectedPassType === 'duo' && !bestieName) {
+        showToast("Please enter your Bestie's name!", "⚠️");
+        return;
+      }
+
+      const amount = STUDIO_UPI_CONFIG.passPrices[selectedPassType] || 299;
+      const attendeeDisplayName = selectedPassType === 'duo' ? `${name} & ${bestieName}` : name;
+      const passTitle = selectedPassType === 'duo' ? "2 Besties Pass (Entry for 2)" : "Solo Queen Pass (Entry for 1)";
+
+      currentBookingData = {
+        name: attendeeDisplayName,
+        primaryName: name,
+        bestieName: bestieName,
+        phone: phone,
+        passType: selectedPassType,
+        passTitle: passTitle,
+        amount: amount,
+        songRequested: song || "Surprise Us / DJ Choice",
+        timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+      };
+
+      // Reset previous UTR input error states
+      const utrInput = document.getElementById('upiUtrRef');
+      if (utrInput) {
+        utrInput.value = '';
+        utrInput.classList.remove('border-red-500', 'bg-red-950/40');
+      }
+
+      // Switch to Payment View
+      const stepForm = document.getElementById('stepForm');
+      const stepPayment = document.getElementById('stepPayment');
+      if (stepForm) stepForm.classList.add('hidden');
+      if (stepPayment) stepPayment.classList.remove('hidden');
+
+      // Update payment labels
+      const payAmountEl = document.getElementById('upiPayAmount');
+      const upiIdEl = document.getElementById('upiIdDisplay');
+      if (payAmountEl) payAmountEl.innerText = `₹${amount}`;
+      if (upiIdEl) upiIdEl.innerText = STUDIO_UPI_CONFIG.vpa;
+
+      // Render Dynamic QR code
+      const qrContainer = document.getElementById('qrCodeContainer');
+      if (qrContainer) {
+        const upiUri = `upi://pay?pa=${encodeURIComponent(STUDIO_UPI_CONFIG.vpa)}&pn=${encodeURIComponent(STUDIO_UPI_CONFIG.name)}&am=${amount}&cu=INR&tn=${encodeURIComponent('Bollywood Dance Party Pass')}`;
+        const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=4&data=${encodeURIComponent(upiUri)}`;
+        qrContainer.innerHTML = `<img src="${qrUrl}" alt="Paytm UPI QR" class="w-full h-full object-contain rounded-lg shadow" />`;
+      }
+    }
+
+    function backToForm() {
+      const stepForm = document.getElementById('stepForm');
+      const stepPayment = document.getElementById('stepPayment');
+      if (stepPayment) stepPayment.classList.add('hidden');
+      if (stepForm) stepForm.classList.remove('hidden');
+    }
+
+    function copyUpiId() {
+      const upiText = STUDIO_UPI_CONFIG.vpa;
+      const textarea = document.createElement("textarea");
+      textarea.value = upiText;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast("UPI ID Copied: " + upiText, "📋");
+      } catch (err) {
+        showToast("UPI ID: " + upiText, "📋");
+      }
+      document.body.removeChild(textarea);
+    }
+
+    // ---------------------------------------------------------------------------------
+    // MANDATORY 12-DIGIT UTR VALIDATION & PASS GENERATION (EXCLUSIVE METHOD)
+    // ---------------------------------------------------------------------------------
+    function confirmWithUtr() {
+      if (!currentBookingData) {
+        showToast("Booking session expired. Please refill your details.", "⚠️");
+        return;
+      }
+
+      const utrInput = document.getElementById('upiUtrRef');
+      const rawUtr = utrInput ? utrInput.value.trim() : '';
+      const cleanUtr = rawUtr.replace(/[\s-]/g, '');
+
+      if (!cleanUtr) {
+        if (utrInput) {
+          utrInput.classList.add('border-red-500', 'bg-red-950/40');
+          utrInput.focus();
+        }
+        showToast("Payment required: Please enter the 12-digit UTR from your UPI receipt!", "⚠️");
+        return;
+      }
+
+      if (cleanUtr.length < 10) {
+        if (utrInput) {
+          utrInput.classList.add('border-red-500', 'bg-red-950/40');
+          utrInput.focus();
+        }
+        showToast("Invalid UTR: Bank UPI reference number must be 12 digits long!", "⚠️");
+        return;
+      }
+
+      if (utrInput) {
+        utrInput.classList.remove('border-red-500', 'bg-red-950/40');
+      }
+
+      const transactionId = cleanUtr;
+      const randomNum = Math.floor(1000 + Math.random() * 9000);
+      const passCode = `ANANDA-${randomNum}`;
+
+      const newBookingRecord = {
+        ...currentBookingData,
+        passCode: passCode,
+        transactionId: transactionId,
+        verificationMethod: "UTR",
+        status: "Confirmed",
+        createdAt: new Date().toISOString()
+      };
+
+      currentBookingData = newBookingRecord;
+      memoryBookings.push(newBookingRecord);
+
+      // Render Completed Ticket
+      const ticketPassId = document.getElementById('ticketPassId');
+      const ticketName = document.getElementById('ticketName');
+      const ticketType = document.getElementById('ticketType');
+      const ticketAmount = document.getElementById('ticketAmount');
+      const ticketSong = document.getElementById('ticketSong');
+      const ticketTxn = document.getElementById('ticketTxn');
+
+      if (ticketPassId) ticketPassId.innerText = passCode;
+      if (ticketName) ticketName.innerText = newBookingRecord.name;
+      if (ticketType) ticketType.innerText = newBookingRecord.passTitle;
+      if (ticketAmount) ticketAmount.innerText = `₹${newBookingRecord.amount}`;
+      if (ticketSong) ticketSong.innerText = newBookingRecord.songRequested;
+      if (ticketTxn) ticketTxn.innerText = transactionId;
+
+      // Switch to Ticket Screen
+      const stepPayment = document.getElementById('stepPayment');
+      const stepTicket = document.getElementById('stepTicket');
+      if (stepPayment) stepPayment.classList.add('hidden');
+      if (stepTicket) stepTicket.classList.remove('hidden');
+
+      // Log directly to Google Sheet
+      logBookingToGoogleSheet(newBookingRecord);
+
+      // Fire celebratory confetti
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 120,
+          spread: 80,
+          origin: { y: 0.6 },
+          colors: ['#FF2E93', '#FFD700', '#8A2BE2', '#FFFFFF']
+        });
+      }
+
+      showToast("Payment Verified! Your Entry Pass is Ready!", "🎉");
+    }
+
+    function logBookingToGoogleSheet(bookingData) {
+      if (!STUDIO_UPI_CONFIG.appsScriptWebhookUrl || STUDIO_UPI_CONFIG.appsScriptWebhookUrl.trim() === "") {
+        console.log("No Apps Script Webhook configured. Booking recorded in browser memory:", bookingData);
+        return;
+      }
+
+      fetch(STUDIO_UPI_CONFIG.appsScriptWebhookUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(bookingData)
+      })
+      .then(() => console.log("Booking successfully synced to Google Sheet"))
+      .catch(err => console.warn("Google Sheet sync warning:", err));
+    }
+
+    function sendPassToWhatsApp() {
+      if (!currentBookingData) return;
+      const d = currentBookingData;
+
+      const lines = [
+        "*HOUSE OF ANANDA • OFFICIAL ENTRY PASS*",
+        "-----------------------------------------",
+        `*Pass ID:* ${d.passCode} (VERIFIED)`,
+        `*Attendee:* ${d.name}`,
+        `*WhatsApp:* ${d.phone}`,
+        `*Pass Category:* ${d.passTitle}`,
+        `*Amount Paid:* Rs. ${d.amount}`,
+        `*Verified UTR / Ref:* ${d.transactionId}`,
+        `*Song Request:* ${d.songRequested}`,
+        "-----------------------------------------",
+        "*Event Logistics:*",
+        "• Date: Saturday, 19th September (4:00 PM - 6:00 PM)",
+        "• Venue: House of Ananda, 2855 Basement, Sainik Colony, Faridabad",
+        "-----------------------------------------",
+        "See you on the dance floor! Please keep this pass for entry verification."
+      ];
+
+      const cleanText = lines.join("\n");
+      const waUrl = `https://wa.me/${STUDIO_UPI_CONFIG.studioPhone}?text=${encodeURIComponent(cleanText)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    // ---------------------------------------------------------------------------------
+    // HOST / ORGANIZER PORTAL
+    // ---------------------------------------------------------------------------------
+    function promptHostLogin() {
+      const pin = prompt("Enter Studio Admin PIN:");
+      if (pin === "2855") {
+        openHostPortal();
+      } else if (pin !== null) {
+        showToast("Incorrect PIN", "⚠️");
+      }
+    }
+
+    function openHostPortal() {
+      const modal = document.getElementById('hostPortalModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+      updatePortalStats();
+    }
+
+    function closeHostPortal() {
+      const modal = document.getElementById('hostPortalModal');
+      if (modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
+    }
+
+    function updatePortalStats() {
+      const totalAttendees = memoryBookings.length;
+      const totalRev = memoryBookings.reduce((sum, b) => sum + Number(b.amount || 0), 0);
+      const elAtt = document.getElementById('statTotalAttendees');
+      const elRev = document.getElementById('statTotalRevenue');
+
+      if (elAtt) elAtt.innerText = totalAttendees;
+      if (elRev) elRev.innerText = `₹${totalRev.toLocaleString('en-IN')}`;
+    }
+
+    function exportBookingsCsv() {
+      if (!memoryBookings.length) {
+        showToast("No active bookings recorded in this browser session yet.", "ℹ️");
+        return;
+      }
+      const headers = ["Timestamp", "Pass ID", "Name", "Phone", "Pass Type", "Amount", "Song Request", "Verified UTR / Txn ID"];
+      const rows = memoryBookings.map(b => [
+        `"${b.timestamp || ''}"`,
+        `"${b.passCode || ''}"`,
+        `"${b.name || ''}"`,
+        `"${b.phone || ''}"`,
+        `"${b.passTitle || ''}"`,
+        b.amount || 0,
+        `"${(b.songRequested || '').replace(/"/g, '""')}"`,
+        `"${b.transactionId || ''}"`
+      ]);
+
+      const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", `House_of_Ananda_Bookings_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function toggleFaq(id) {
+      const el = document.getElementById(id);
+      const icon = document.getElementById(`${id}-icon`);
+      if (!el) return;
+      if (el.classList.contains('hidden')) {
+        el.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
+      } else {
+        el.classList.add('hidden');
+        if (icon) icon.classList.remove('rotate-180');
+      }
+    }
+
+    // ---------------------------------------------------------------------------------
+    // PARTY MUSIC CONTROLLER (LOCAL MP3)
+    // ---------------------------------------------------------------------------------
+    let isAudioPlaying = false;
+
+    function toggleMusicPlayback() {
+      const audio = document.getElementById('localPartyAudio');
+      const icon = document.getElementById('musicPlayIcon');
+      const bars = document.getElementById('musicPlayingBars');
+
+      if (!audio) return;
+
+      if (!isAudioPlaying) {
+        audio.play().then(() => {
+          isAudioPlaying = true;
+          if (icon) icon.className = "fa-solid fa-pause";
+          if (bars) bars.classList.remove('opacity-40');
+          showToast("Playing Mashup of the Year! 💃🪩", "🎵");
+        }).catch(err => {
+          console.warn("Audio file playback blocked or file not found:", err);
+          showToast("Place 'mashup-of-the-year.mp3' in project folder to play!", "ℹ️");
+        });
+      } else {
+        audio.pause();
+        isAudioPlaying = false;
+        if (icon) icon.className = "fa-solid fa-play";
+        if (bars) bars.classList.add('opacity-40');
+      }
+    }
+
+    function initMusicAutoplay() {
+      const startOnFirstGesture = () => {
+        const audio = document.getElementById('localPartyAudio');
+        if (audio && !isAudioPlaying) {
+          audio.play().then(() => {
+            isAudioPlaying = true;
+            const icon = document.getElementById('musicPlayIcon');
+            const bars = document.getElementById('musicPlayingBars');
+            if (icon) icon.className = "fa-solid fa-pause";
+            if (bars) bars.classList.remove('opacity-40');
+          }).catch(() => {});
+        }
+        ['click', 'touchstart'].forEach(type => {
+          document.removeEventListener(type, startOnFirstGesture);
+        });
+      };
+
+      ['click', 'touchstart'].forEach(type => {
+        document.addEventListener(type, startOnFirstGesture, { once: true, passive: true });
+      });
+    }
+
+    // ---------------------------------------------------------------------------------
+    // EXPOSE TO GLOBAL WINDOW & SETUP EVENT LISTENERS
+    // ---------------------------------------------------------------------------------
+    window.toggleMusicPlayback = toggleMusicPlayback;
+    window.openBookingModal = openBookingModal;
+    window.closeBookingModal = closeBookingModal;
+    window.selectPassType = selectPassType;
+    window.proceedToPayment = proceedToPayment;
+    window.backToForm = backToForm;
+    window.copyUpiId = copyUpiId;
+    window.confirmWithUtr = confirmWithUtr;
+    window.sendPassToWhatsApp = sendPassToWhatsApp;
+    window.promptHostLogin = promptHostLogin;
+    window.openHostPortal = openHostPortal;
+    window.closeHostPortal = closeHostPortal;
+    window.exportBookingsCsv = exportBookingsCsv;
+    window.toggleFaq = toggleFaq;
+    window.showToast = showToast;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener('click', (e) => {
+        const bookingModal = document.getElementById('bookingModal');
+        const hostModal = document.getElementById('hostPortalModal');
+        if (e.target === bookingModal) closeBookingModal();
+        if (e.target === hostModal) closeHostPortal();
+      });
+
+      initMusicAutoplay();
+    });
+  </script>
+</body>
+</html>
